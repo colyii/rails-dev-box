@@ -1,9 +1,10 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 Vagrant.configure('2') do |config|
-  config.vm.box      = 'ubuntu/disco64' # 19.04
+  config.vm.box      = 'ubuntu/cosmic64' # 18.10
   config.vm.hostname = 'rails-dev-box'
 
+  config.vm.network 'private_network', ip: '192.168.30.10'
   config.vm.network :forwarded_port, guest: 3000, host: 3000
 
   config.vm.provision :shell, path: 'bootstrap.sh', keep_color: true
